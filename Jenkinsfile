@@ -7,14 +7,22 @@ pipeline {
                 sh 'npm install'
             }
         }
+
         stage('Build') {
             steps {
                 sh 'npm run build'
             }
         }
+
         stage('Test') {
             steps {
                 sh 'npm test'
+            }
+        }
+
+        stage('Run App') {
+            steps {
+                sh 'node index.js'
             }
         }
     }
